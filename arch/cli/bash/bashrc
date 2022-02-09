@@ -1,0 +1,2 @@
+source "$XDG_CONFIG_HOME/bash/fzf"
+source /usr/share/doc/pkgfile/command-not-found.bash

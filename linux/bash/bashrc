@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+# Do nothing if not running interactively
+[ -z "$PS1" ] && return
+
+# Bash options
+shopt -s autocd
+shopt -s cdspell        # autocorrects cd misspellings
+shopt -s checkhash
+shopt -s checkjobs
+shopt -s checkwinsize   # update the value of LINES and COLUMNS after each command if altered
+shopt -s cmdhist        # save multi-line commands in history as single line
+shopt -s complete_fullquote
+shopt -s direxpand
+shopt -s dirspell
+shopt -s dotglob        # include dotfiles in pathname expansion
+shopt -s expand_aliases # expand aliases
+shopt -s extglob        # enable extended pattern-matching features
+shopt -s histreedit     # Add failed commands to the bash history
+shopt -s histappend     # Append bash history, don't overwrite
+
+# Disable flow-control
+# stty stop ''
+# stty start ''
+# stty -ixon
+# stty -ixoff
+
+# Attempt to keep an unlimitedly large history
+export HISTFILE="$XDG_CACHE_HOME/bash_history"
+export HISTCONTROL=ignoredups:erasedups
+export HISTSIZE=
+export HISTFILESIZE=
+
+export PAGER=more
+
+# Use neovim if available
+export EDITOR=$(hash nvim 2>/dev/null && echo 'nvim' || echo 'vim')
+
+# Make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+source "$XDG_CONFIG_HOME/bash/prompt"
+source "$XDG_CONFIG_HOME/bash/aliases"
+
+# Source all extra functions
+for f in "$XDG_CONFIG_HOME/bash/functions.d/"*; do source "$f"; done
+
+# Setup dircolors
+# val "$(dircolors "$XDG_CONFIG_HOME/bash/dircolors/solarized_dark")"
+
+# Setup direnv if available
+# hash direnv 2>/dev/null && eval "$(direnv hook bash)"
+
+if [ "$TERM" = "linux" ]; then
+    echo -en "\e]P01d1f21" #black
+    echo -en "\e]P8282a2e" #dark-grey
+    echo -en "\e]P1a54242" #dark-red
+    echo -en "\e]P9cc6666" #red
+    echo -en "\e]P28c9440" #dark-green
+    echo -en "\e]PAb5bd68" #green
+    echo -en "\e]P3de935f" #dark-yellow/orange/brown
+    echo -en "\e]PBf0c674" #yellow
+    echo -en "\e]P454819d" #darkblue
+    echo -en "\e]PC81a2be" #blue
+    echo -en "\e]P585678f" #dark-purple
+    echo -en "\e]PDb294bb" #purple
+    echo -en "\e]P65e8e87" #darkteal
+    echo -en "\e]PE8abeb7" #teal
+    echo -en "\e]P7707880" #light-grey
+    echo -en "\e]PFc5c8c6" #white
+    clear #for background artifacting
+fi

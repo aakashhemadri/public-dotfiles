@@ -1,0 +1,29 @@
+##
+# Author: Aakash Hemadri <aakashhemadri123@gmail.com>
+#
+# A public and minimal section of my dotfiles
+##
+
+install_path: ${HOME}/.config
+
+# The file suffix used for override files
+override_suffix: override
+
+# The file suffix to use for installation files
+install_suffix: install
+
+groups:
+  - linux
+  - arch/cli
+
+base_groups: [linux]
+
+profiles:
+  arch:
+    - arch/cli
+  arch-remote:
+    - arch/cli
+#  debian:
+#    - debian/cli
+#  suse:
+#    - suse/cli

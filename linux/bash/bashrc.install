@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+DIR="$( cd -P "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+echo -e "$YEL*** Installing $PUR${DIR#$DOTS_SOURCE/}/$(basename $0 .install)$RST"
+
+# Cleanup home directory
+rm -f "$HOME/.bashrc" \
+    "$HOME/.profile" \
+    "$HOME/.bash_profile" \
+    "$HOME/.bash_history" \
+    "$HOME/.bash_logout" \
+    "$HOME/.bash_login"
+
+# Link bashrc / profile
+ln -sf "$XDG_CONFIG_HOME/bash/bashrc" "$HOME/.bashrc"
+ln -sf "$XDG_CONFIG_HOME/bash/profile" "$HOME/.profile"
+ln -sf "$XDG_CONFIG_HOME/bash/pam_environment" "$HOME/.pam_environment"
+
+# Ensure cache and data directory is setup
+mkdir -p "$XDG_CACHE_HOME"
+mkdir -p "$XDG_DATA_HOME"

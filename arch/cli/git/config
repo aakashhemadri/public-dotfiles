@@ -1,0 +1,40 @@
+[core]
+  autocrlf = false
+  excludesfile = ~/.config/git/ignore
+
+[pretty]
+  ls = format:%C(cyan)%h %C(red)%ad %C(blue)[%an]%C(auto)%d %C(normal)%s
+  fixes = Fixes: %h (\"%s\")
+
+[commit]
+  gpgsign = true
+
+[filter "lfs"]
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+
+[format]
+  signoff = true
+
+[color]
+  ui = true
+
+[apply]
+  whitespace = strip
+
+[url "git@github.com:"]
+  insteadOf = gh:
+
+[url "git@github.com:aakashhemadri/"]
+  insteadOf = me:
+
+[include]
+  path = config.personal
+
+[include]
+  path = smtp
+
+[include]
+  path = git.secret
