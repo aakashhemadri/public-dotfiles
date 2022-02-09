@@ -17,3 +17,5 @@ source /dev/stdin <<<"$(curl --silent --show-error --location \
     https://github.com/EvanPurkhiser/dots/releases/download/v2.0.0-alpha.1/bootstrap)"
 
 source $HOME/.local/etc/env.sh
+
+return 0
