@@ -5,7 +5,7 @@ echo -e "$YEL*** Installing $PUR${DIR#$DOTS_SOURCE/}/$(basename $0 .install)$RST
 
 # Both source and target files should be set to 600 permissions. Git does not
 # track permissions otherwise so this is a requirement.
-chmod 600 "$DOTS_SOURCE/arch/targets/xps/ssh/config" "$XDG_CONFIG_HOME/ssh/config"
+chmod 600 "$DOTS_SOURCE/arch/cli/ssh/config" "$XDG_CONFIG_HOME/ssh/config"
 
 mkdir -p "$HOME/.ssh"
 ln -sf "$XDG_CONFIG_HOME/ssh/config" "$HOME/.ssh/"
