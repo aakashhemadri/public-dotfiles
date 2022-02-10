@@ -1,0 +1,6 @@
+Host *
+	ServerAliveInterval 60
+	TCPKeepAlive yes
+	ForwardAgent no
+	ConnectionAttempts 1
+	Compression yes
