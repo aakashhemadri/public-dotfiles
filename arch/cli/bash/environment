@@ -1,1 +1,7 @@
+#!/usr/bin/env bash
+#
+# Environment variables for arch/cli
+#
+
 export SYSTEMD_EDITOR="vim"
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"

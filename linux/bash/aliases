@@ -1,11 +1,18 @@
+#
+# Aliases for linux/
+#
+
 #!/usr/bin/env bash
+
+# Dotfiles
+alias ds="cd ${DOTS_SOURCE}"
+alias di="dots install"
 
 # Builtins-Base
 alias cd="pushd"
 alias p="popd"
 alias cp="cp -i"     # overwrite confirmation
-alias mv="mv -i"     # overwrite confirmation
-alias df="df -h"     # human-readable sizes
+alias mv="mv -i"     # overwrite confirmation alias df="df -h"     # human-readable sizes
 alias du="du -h"     # human-readable sizes
 alias free="free -h" # human-readable sizes
 alias ll="ls -l"     # detailed file list
