@@ -15,6 +15,7 @@ install_suffix: install
 groups:
   - linux
   - arch/cli
+  - debian/cli
 
 base_groups: [linux]
 
@@ -23,7 +24,7 @@ profiles:
     - arch/cli
   arch-remote:
     - arch/cli
-#  debian:
-#    - debian/cli
+  debian:
+    - debian/cli
 #  suse:
 #    - suse/cli
